@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "react-native-app",
-    "slug": "react-native-app",
+    "name": "React-Application",
+    "slug": "React-Application",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "rimuruapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
