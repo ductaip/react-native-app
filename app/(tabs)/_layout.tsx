@@ -5,65 +5,72 @@ import { Ionicons } from '@expo/vector-icons'
 
 const TabsLayout = () => {
   return (
-    <Tabs>
-            <Tabs.Screen
+    <Tabs
+        screenOptions={{
+            tabBarActiveTintColor: '#FFA001',
+            tabBarInactiveTintColor: '#cdcde0',
+            tabBarStyle: {
+                backgroundColor: '#161622',
+                borderTopWidth: 1,
+                borderTopColor: '232533',
+                height: 84,
+            }
+        }}
+    >
+        <Tabs.Screen
             name="home"
             options={{
+                title: 'Home',
                 headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => (
                     <Ionicons
-                    name={focused ? 'home' : 'home-outline'}
-                    size={size}
-                    color={color}
+                        name={focused ? 'home' : 'home-outline'}
+                        size={size}
+                        color={color}
                     />
                 ),
-                tabBarActiveTintColor: '#007AFF', // Màu icon khi được chọn
-                tabBarInactiveTintColor: '#8e8e93', // Màu icon khi không được chọn
             }}
         />
         <Tabs.Screen
             name="profile"
             options={{
+                title: 'Profile',
                 headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => (
                     <Ionicons
-                    name={focused ? 'person' : 'person-outline'}
-                    size={size}
-                    color={color}
+                        name={focused ? 'person' : 'person-outline'}
+                        size={size}
+                        color={color}
                     />
-                ),
-                tabBarActiveTintColor: '#007AFF',
-                tabBarInactiveTintColor: '#8e8e93',
+                ) 
             }}
         />
         <Tabs.Screen
             name="bookmark"
             options={{
+                title: 'Bookmark',
                 headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => (
                     <Ionicons
-                    name={focused ? 'bookmark' : 'bookmark-outline'}
-                    size={size}
-                    color={color}
+                        name={focused ? 'bookmark' : 'bookmark-outline'}
+                        size={size}
+                        color={color}
                     />
-                ),
-                tabBarActiveTintColor: '#007AFF',
-                tabBarInactiveTintColor: '#8e8e93',
+                ) 
             }}
         />
         <Tabs.Screen
             name="create"
             options={{
+                title: 'Create',
                 headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => (
                     <Ionicons
-                    name={focused ? 'add-circle' : 'add-circle-outline'}
-                    size={size}
-                    color={color}
+                        name={focused ? 'add-circle' : 'add-circle-outline'}
+                        size={size}
+                        color={color}
                     />
-                ),
-                tabBarActiveTintColor: '#007AFF',
-                tabBarInactiveTintColor: '#8e8e93',
+                ) 
             }}
         />
     </Tabs>

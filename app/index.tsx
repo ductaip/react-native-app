@@ -1,14 +1,18 @@
-import { Text, View } from 'react-native'
+import { Image, ScrollView, Text, View } from 'react-native'
 import { Link } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
+import { SafeAreaView } from 'react-native-safe-area-context'
+// import images from '../constants/images'
 
 const App = () => {
   return (
-    <View className='flex-1 items-center justify-center bg-gray-500'>
-      <Text className='text-3xl font-pop-blk'>index....</Text>
-      <StatusBar style='auto' />
-      <Link href='/home' className='text-xl text-white'>Go to the Home</Link>
-    </View>
+    <SafeAreaView className='bg-primary h-full'>
+      <ScrollView contentContainerStyle={{height: '100%'}}>
+        <View className='w-full justify-center items-center h-full px-4'>
+          <Image className='w-[130px] h-[100px]' source={{uri: 'https://i.pinimg.com/736x/90/5f/dd/905fddb1a672c4871f2686b0105b4b79.jpg'}}/>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
