@@ -23,7 +23,28 @@ const SignIn = () => {
           />
 
           <Text className='text-2xl text-white text-semibold mt-10 font-pop-sb'>Login to App</Text>
- 
+
+          <Form 
+            title='Email'
+            placeholder='Email'
+            value={form.email}
+            handleChangeText={(e)=> setForm({...form, email: e})}
+            otherStyles="mt-7"
+            keyboardType="email-address"
+          />
+          <Form 
+            title='Password'
+            placeholder='Password'
+            value={form.password}
+            handleChangeText={(e)=> setForm({...form, password: e})}
+            otherStyles="mt-7"
+          />
+
+          <CustomButton 
+            title="Login"
+            handlePress={() => router.push("/sign-in")}
+            containerStyles="w-full mt-7"
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
