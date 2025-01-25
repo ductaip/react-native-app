@@ -22,7 +22,7 @@ const Form: React.FC<FormFieldProps> = ({
 
   return (
     <View className={`space-y-2 ${otherStyles}`}>
-      <Text className="text-base ml-1 text-gray-100 font-pmedium">{title}</Text>
+      <Text className="text-base ml-2 text-gray-100 font-pmedium">{title}</Text>
 
       <View className="w-full h-16 mt-2 px-4 bg-black-100 rounded-2xl border-2 focus:border-secondary flex flex-row items-center">
         <TextInput
