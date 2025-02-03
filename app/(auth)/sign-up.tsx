@@ -20,7 +20,9 @@ const SignUp = () => {
     }
     
     try {
-      const result = await createUser(form.email, form.username, form.password);
+      await createUser(form.email, form.username, form.password);
+
+      router.replace('/home')
     } catch(error: any) {
       Alert.alert('Error', error.message)
     }  
