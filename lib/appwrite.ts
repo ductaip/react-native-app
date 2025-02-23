@@ -19,7 +19,7 @@ client
     .setPlatform(config.platform) 
 
 
-const account = new Account(client)
+export const account = new Account(client)
 const avatars = new Avatars(client)
 const databases = new Databases(client)
 

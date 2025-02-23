@@ -19,7 +19,7 @@ const SignIn = () => {
       }
       
       try {
-        await signIn(form.email, form.password);
+        const result = await signIn(form.email, form.password);
   
         router.replace('/home')
       } catch(error: any) {
