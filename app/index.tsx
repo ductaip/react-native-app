@@ -1,11 +1,19 @@
 import { Image, ScrollView, Text, View } from 'react-native'
-import { Link, router } from 'expo-router'
+import { Link, Redirect, router } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { images } from '../constants'
 import Button from '@/components/Button'
+import { useGlobalContext } from '@/context/GlobalProvider'
 
 const App = () => {
+  const {isLoading, isLoggedIn} = useGlobalContext()
+
+  console.log(isLoading, '>>>', isLoggedIn)
+  if(!isLoading && isLoggedIn) 
+    return <Redirect href="/home" />
+
+
   return (
     <SafeAreaView className='bg-primary h-full'>
       <ScrollView contentContainerStyle={{height: '100%'}}>

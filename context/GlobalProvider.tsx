@@ -1,11 +1,12 @@
+import { getCurrentUser } from "@/lib/appwrite";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface GlobalContextInterface {
     isLoggedIn: boolean,
     setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>,
 
-    user: null | any,
-    setUser: React.Dispatch<React.SetStateAction<null | any>>,
+    user: any,
+    setUser: React.Dispatch<React.SetStateAction<any>>,
 
     isLoading: boolean,
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
@@ -29,10 +30,25 @@ export const useGlobalContext = () => useContext(GlobalContext)
 const GlobalProvider = ({children}: {children: React.ReactNode}) => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(initialGlobalContext.isLoggedIn)
     const [user, setUser] = useState(initialGlobalContext.user)
-    const [isLoading, setIsLoading] = useState(initialGlobalContext.isLoading)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        
+        getCurrentUser()
+            .then((res: any) => {
+                if(res) {
+                    setIsLoggedIn(true)
+                    setUser(res)
+                } else {
+                    setIsLoggedIn(false)
+                    setUser(null)
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
     }, [])
 
     return (
@@ -41,3 +57,5 @@ const GlobalProvider = ({children}: {children: React.ReactNode}) => {
         </GlobalContext.Provider>
     )
 }
+
+export default GlobalProvider
