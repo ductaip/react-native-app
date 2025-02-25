@@ -1,3 +1,4 @@
+import { VideoCollection } from '@/types/videoCollection';
 import { Client, Account, ID, Avatars, Databases, Query } from 'react-native-appwrite'
 
 export const config = {
@@ -84,3 +85,16 @@ export const getCurrentUser = async () => {
         console.log(error)
     }
 }
+
+export const getAllPosts = async () => {
+    try {
+        const posts = await databases.listDocuments(
+            config.databaseId,
+            config.videoCollectionId
+        )
+
+        return posts.documents
+    } catch (error: any) {
+        throw new Error(error)
+    }
+} 
